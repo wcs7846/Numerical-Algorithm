@@ -8,7 +8,7 @@
 % How sensitive is the random number generator to change in seeds
 
 % Author: MarkLHF(email:2751867750@qq.com)
-% Date: 2019-8-20
+% Date: 2019-9-11
 %% Programming Main Body
 % 1. generate the 10,000 number
 N = 10000;
@@ -23,5 +23,5 @@ mean_val = mean(x);
 num_bins = 20;
 counts = hist(x, num_bins);
 % show 
-figure;bar(counts);hold on;
-xlim([0, num_bins+1]);
+figure;bar(0:num_bins-1,counts);hold on;
+xlim([0, num_bins-1]);
