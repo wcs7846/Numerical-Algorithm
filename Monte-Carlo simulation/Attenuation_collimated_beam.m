@@ -11,7 +11,7 @@
 % 5. delta_z = 20 cm(absorption only occur at the end of step)
 
 % Author: MarkLHF(email:2751867750@qq.com)
-% Date: 2019-9-11
+% Date: 2019-9-12
 %% Programming Main Body
 delta_z = 0.2; % [m]
 a = 1;        % [m-1]
@@ -33,7 +33,7 @@ for n = 1:max_step
     if num_photon_vec(n) == 0
         break;
     end    
-    % move the photon
+    % move the photon (the event of absorption)
     dice = rand(length(flag_photon), 1);
     % judging whether or not to be absorbed 
     loc = find(dice<prob);
