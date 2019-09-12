@@ -3,8 +3,43 @@
 % Exercise 2: Attenuation of a collimated beam 
 
 %% Target
-% 
+% Assume photon can be :
+% 1. absorbed (c = a = 1m-1; a is probability of absorption)
+% 2. transmitted
+% 3. Not scattered
+% 4. no boundaries(no refraction)
+% 5. delta_z = 20 cm(absorption only occur at the end of step)
 
 % Author: MarkLHF(email:2751867750@qq.com)
-% Date: 2019-8-20
+% Date: 2019-9-11
 %% Programming Main Body
+delta_z = 0.2; % [m]
+a = 1;        % [m-1]
+N = 10000;    % the number of points
+num_photon_vec = zeors(N, 1);
+flag_photon = ones(N,1);
+max_step = 100;
+
+prob = a*delta_z; % the probability of absorption
+% check the validity of prob
+if prob > 1
+    error("[ERROR]:The probability of absorption is over 1!!");
+end
+
+for n = 1:max_step
+    % record the number of photon which isnot absorbed
+    num_photon_vec(n) = sum(flag_photon);
+    
+    if num_photon_vec(n) == 0
+        break;
+    end    
+    % move the photon
+    dice = rand(length(flag_photon));
+    % judging whether or not to be absorbed 
+    loc = find(dice<prob);
+    flag_photon(loc) = 0;
+    
+end
+%% show the result 
+figure;
+bar(1:)
