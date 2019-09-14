@@ -15,7 +15,7 @@
 %% Programming Main Body
 delta_z = 0.2; % [m]
 a = 1;        % [m-1]
-N = 10000;    % the number of points
+N = 1e4;    % the number of points
 flag_photon = ones(N,1);
 max_step = 100;
 num_photon_vec = zeros(max_step, 1);

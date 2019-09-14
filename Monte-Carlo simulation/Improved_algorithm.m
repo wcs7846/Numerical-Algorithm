@@ -14,7 +14,7 @@
 %% Programming Main Body
 delta_z = 0.2; % [m]
 a = 1;        % [m-1]
-N = 10000;    % the number of points
+N = 1e6;    % the number of points
 max_step = 100;
 
 loc_photon = zeros(N, 1); % 1D
@@ -64,5 +64,5 @@ figure;
 x_range = (0:max_step-1)*delta_z;% [m]
 bar(x_range, num_photon_vec);hold on; % the distribution of photon
 plot(x_range, num_photon_vec, 'b-');hold on; % the curve
-xlim([0,max_step*delta_z]); ylim([0,1.5*max(num_photon_vec)]);
+xlim([0,max_step*delta_z]); ylim([0,1.25*max(num_photon_vec)]);
 xlabel('Depth(m)');ylabel('The number of photon');
