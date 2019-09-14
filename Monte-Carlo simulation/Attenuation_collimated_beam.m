@@ -35,7 +35,7 @@ for n = 1:max_step
     end    
     % move the photon (the event of absorption)
     dice = rand(length(flag_photon), 1);
-    % judging whether or not to be absorbed 
+    % judging whether or not to be absorbed(small is absorbed)
     loc = find(dice<prob);
     flag_photon(loc) = 0;
     
